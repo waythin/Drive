@@ -11,8 +11,9 @@ class DriverController extends Controller
     
     public function index(Request $request)
     {
-        $drivers = Driver::all(); 
 
+        
+        $drivers = Driver::all(); 
         return view('/list_index', compact('drivers'));
     }
 
@@ -74,14 +75,67 @@ class DriverController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Driver $driver)
+    public function update(Request $request, $id)
     {
-        //
+        $request->validate(
+
+            [   'name' => 'required|min:3|max:25',
+                'email' => 'required',
+                'phone' => 'required',
+                'password' => 'required',
+            ],
+    
+            [
+                // 'name.required'=>'Name is requried!',
+                // 'name.min'=>'Name must be more than 2 characters!',
+                // 'name.max'=>'Name must be less than 16 characters!',
+            ]);
+    
+            $driver = Driver::find($id); 
+    
+            $driver->name = $request->name;
+            $driver->email = $request->email;
+            $driver->phone = $request->phone;
+            $driver->password = $request->password;
+            $driver->save();
+            
+
+            return redirect()->route('index');
+            
     }
 
    
-    public function delete(Driver $driver, $id)
+    public function delete($id)
     {
-        $driver = Driver::where('id_driver', $id)->first();
+        // $driver = Driver::where('id_driver', $id)->delete();
+        // return view();
+
+        Driver::find($id)->delete();
+            return redirect('/index');
+    }
+
+
+    public function login(){
+
+        return view('/login');
+
+    }
+
+    public function loginConfirm(Request $request){
+
+        $name = $request->name;
+        $password = $request->password;
+
+        $driver = Driver::where('name', $name)->first();
+
+        if($driver->password == $password && $driver->name == $name){
+          return ('welcome brother');
+        }
+        else{
+            return ('wrong gg');
+        }
+
+        
+        
     }
 }

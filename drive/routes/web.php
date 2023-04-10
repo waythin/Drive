@@ -24,17 +24,20 @@ Route::get('/', function () {
 Route::get('/registration',[DriverController::class, 'create']);
 Route::post('/registration',[DriverController::class, 'store']);
 
+//login
+Route::get('/login', [DriverController::class, 'login']);
+Route::post('/login', [DriverController::class, 'loginConfirm']);
 
 //List index 
 Route::get('/index',[DriverController::class, 'index'])->name('index');
 
 //edit 
-Route::get('/edit/{id}',[DriverController::class, 'edit']);
-Route::post('/update/{id}',[DriverController::class, 'update']);
+Route::get('/index/edit/{id}',[DriverController::class, 'edit'])->name('edit');
+Route::post('/index/edit/{id}',[DriverController::class, 'update'])->name('update');
 
 
 //delete
-Route::post('/delete/{id}',[DriverController::class, 'delete']);
+Route::get('/delete/{id}',[DriverController::class, 'delete'])->name('delete');
 
 
 

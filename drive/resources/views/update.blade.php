@@ -9,24 +9,37 @@
 
 
 <body>
-    <Table>
-        <tr>
-            <th>Name</th>
-            <th>email</th>
-            <th>phone</th>
-            <th>edit</th>
-         
-        </tr>   <br>
-        
+    <form action="" method="POST">
+        {{csrf_field()}}
        
-            <tr>
-                <td> {{ $driver->name }} </td>
-                <td> {{ $driver->email }} </td>
-                <td> {{ $driver->phone }} </td>
-                <td> <button>Update</button></td>
-            </tr>   <br>
-            
-      
+        <input type="text" name="name" value="{{$driver->name}}"> 
+            @error('email')
+            <span> {{$message}}</span>
+            @enderror
+        <br>
 
+        <input type="text" name="email" value="{{$driver->email}}">
+            @error('email')
+            <span> {{$message}}</span>
+            @enderror
+        <br>
+
+        <input type="text" name="phone" value="{{$driver->phone}}"> 
+            @error('phone')
+            <span> {{$message}}</span>
+            @enderror
+        <br>
+
+        <input type="text" name="password" value="{{$driver->password}}"> 
+            @error('password')
+            <span> {{$message}}</span>
+            @enderror
+        <br>
+
+        <a href="{{route('update', ['id' => $driver->id_driver])}}"> <button  type="submit"> Save </button></a>
+        
+
+    </form>
 </body>
+
 </html>

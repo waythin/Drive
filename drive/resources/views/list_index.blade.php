@@ -24,8 +24,8 @@
                 <td> {{ $driver->name }} </td>
                 <td> {{ $driver->email }} </td>
                 <td> {{ $driver->phone }} </td>
-                <td> <button>Edit</button></td>
-                <td> <button>Delete</button></td>
+                <td> <a href="{{route('edit', ['id' => $driver->id_driver])}}">  <button>Edit</button> </a></td>
+                <td><a href="{{route('delete', ['id' => $driver->id_driver])}}">  <button>Delete</button> </a> </td>
             </tr>   <br>
             
         @endforeach
