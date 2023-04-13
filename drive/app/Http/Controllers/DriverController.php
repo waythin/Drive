@@ -121,15 +121,34 @@ class DriverController extends Controller
 
     }
 
-    public function loginConfirm(Request $request){
+    public function loginCheck(Request $request){
 
+        // $driver= Driver::all();
+       
         $name = $request->name;
         $password = $request->password;
 
+        $request->validate(
+
+            [   'name' => 'required|min:3|max:25',
+                'password' => 'required',
+            ],
+    
+            [
+                // 'name.required'=>'Name is requried!',
+                // 'name.min'=>'Name must be more than 2 characters!',
+                // 'name.max'=>'Name must be less than 16 characters!',
+            ]);
+
         $driver = Driver::where('name', $name)->first();
+        $flag = false;
 
         if($driver->password == $password && $driver->name == $name){
-          return ('welcome brother');
+
+            $flag = true;
+            $request->session()->put('id',$driver->id_driver);
+            $request->session()->put('name',$driver->name);
+            return view('/dope');
         }
         else{
             return ('wrong gg');
@@ -137,5 +156,10 @@ class DriverController extends Controller
 
         
         
+    }
+
+    public function logout(Request $request){
+        $request->session()->flush();
+        return redirect()->route('login');
     }
 }

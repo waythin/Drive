@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\DriverController;
+use App\Http\Middleware\DriverAuth;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -25,15 +26,24 @@ Route::get('/registration',[DriverController::class, 'create']);
 Route::post('/registration',[DriverController::class, 'store']);
 
 //login
-Route::get('/login', [DriverController::class, 'login']);
-Route::post('/login', [DriverController::class, 'loginConfirm']);
+Route::get('/login', [DriverController::class, 'login'])->name('login');
+Route::post('/login', [DriverController::class, 'loginCheck']);
+
+//logout
+Route::get('/logout',[DriverController::class,'logout'])->name('logout');
 
 //List index 
-Route::get('/index',[DriverController::class, 'index'])->name('index');
+Route::get('/index',[DriverController::class, 'index'])->name('index')->middleware(DriverAuth::class);
 
 //edit 
-Route::get('/index/edit/{id}',[DriverController::class, 'edit'])->name('edit');
-Route::post('/index/edit/{id}',[DriverController::class, 'update'])->name('update');
+Route::get('/index/edit/{id}',[DriverController::class, 'edit'])->name('edit')->middleware(DriverAuth::class);
+Route::post('/index/edit/{id}',[DriverController::class, 'update'])->name('update')->middleware(DriverAuth::class);
+
+//show profile
+
+Route::get('/dope', function(){
+    return view("dope");
+})->middleware(DriverAuth::class);
 
 
 //delete
