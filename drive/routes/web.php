@@ -2,7 +2,9 @@
 
 use App\Http\Controllers\DriverController;
 use App\Http\Middleware\DriverAuth;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
+use Psy\Command\ListCommand\FunctionEnumerator;
 
 /*
 |--------------------------------------------------------------------------
@@ -22,7 +24,7 @@ Route::get('/', function () {
 
 
 //registration 
-Route::get('/registration',[DriverController::class, 'create']);
+Route::get('/registration',[DriverController::class, 'create'])->name('registration');
 Route::post('/registration',[DriverController::class, 'store']);
 
 //login
@@ -54,4 +56,16 @@ Route::get('/delete/{id}',[DriverController::class, 'delete'])->name('delete');
 Route::get('/first',function(){
     return "getiing it";
 });
+
+
+
+Route::get('/demo',function(){
+    return view('demo');
+});
+
+
+Route::get('/pr',function(){
+    return view('pr');
+});
+
 

@@ -1,0 +1,770 @@
+/* 
+    1. base color 
+    2. accent color  [01 02 03]
+    3. hover color {base and accent } => lighter and darker
+*/
+
+
+*{
+    margin: 0;
+    padding: 0;
+    font-family: UberMoveText, system-ui, "Helvetica Neue", Helvetica, Arial, sans-serif;
+    background-color: rgb(76, 46, 110);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+:root{
+    --display: inline-block;
+    --height: 4em;
+    --width: 10em;
+    --border-radius: 7px;
+    --font-size: 2em;
+    --font-weight: 500;
+    --margin: 20px 20px;
+    --cursor: pointer;
+
+     --background-color: rgb(76, 46, 110);
+    /* --backdrop-filter: blur(5px); */
+
+    
+    /* accent 01 outlined  */
+    --accent01-border: 3px solid;
+    --accent01-dark-border-color:  rgb(133, 87, 185);
+    --accent01-text-color: rgb(215, 179, 255);
+    --accent01-background-color: transparent;
+
+                /* hover 01*/
+                --hover01-border-color: rgb(215, 179, 255);
+                --hover01-background-color:  rgb(86, 52, 124);
+
+
+    /*  accent 02 contained*/
+    --accent02-border: none;
+    --accent02-background-color: rgb(215, 179, 255);
+    --accent02-text-color: rgb(0, 0, 0);
+
+                /* hover 02*/
+                --hover02-background-color:  rgb(141, 88, 202);
+    
+    /* accent 03 text  */
+    --accent03-border: none;
+    --accent03-text-color: rgb(215, 179, 255);
+    --accent03-background-color: transparent;
+
+    
+    
+                /* hover 03*/
+                --hover03-background-color:  rgb(86, 52, 124);
+
+
+  
+}
+
+
+
+/* 
+----------------------------------------------------------------
+button 
+        1. outlined button
+-----------------------------------------------------------------
+*/
+.button-01{
+    display: var(--display);
+    height: var(--height);
+    width: var(--width);
+    border-radius: var(--border-radius);
+    font-size: var(--font-size);
+    font-weight: var(--font-weight);
+    margin: var(--margin);
+    cursor: var(--cursor);
+
+    border: var(--accent01-border);
+    border-color: var(--accent01-dark-border-color);
+    color: var(--accent01-text-color);
+    background-color: var(--accent01-background-color);
+
+    transition: .5s;
+    
+}
+.button-01:hover{
+   border-color: var(--hover01-border-color);
+   background-color:  var(--hover01-background-color)
+  
+}
+
+
+
+/* 
+----------------------------------------------------------------
+button 
+        2. contained button
+-----------------------------------------------------------------
+*/
+
+.button-02{
+    display: var(--display);
+    height: var(--height);
+    width: var(--width);
+    border-radius: var(--border-radius);
+    font-size: var(--font-size);
+    font-weight: var(--font-weight);
+    margin: var(--margin);
+    cursor: var(--cursor);
+
+    border: var(--accent02-border);
+    background-color: var(--accent02-background-color);
+    color: var(--accent02-text-color);
+
+    transition: .5s;
+    
+}
+.button-02:hover{
+   background-color:  var(--hover02-background-color)
+  
+}
+
+
+/* 
+----------------------------------------------------------------
+button 
+        3. text button
+-----------------------------------------------------------------
+*/
+
+.button-03{
+    display: var(--display);
+    height: var(--height);
+    width: var(--width);
+    border-radius: var(--border-radius);
+    font-size: var(--font-size);
+    font-weight: var(--font-weight);
+    margin: var(--margin);
+    cursor: var(--cursor);
+
+    border: var(--accent03-border);
+    background-color: var(--accent03-background-color);
+    color: var(--accent03-text-color);
+
+    transition: .5s;
+    
+}
+.button-03:hover{
+   background-color:  var(--hover03-background-color)
+  
+
+}
+
+/* ----------------------------------------------------------------
+    check input
+
+----------------------------------------------------------------*/
+input[type="checkbox"]{
+
+    margin: var(--margin);
+    cursor: var(--cursor);
+    position: relative;
+    height: 50px;
+    width: 90px;
+    -webkit-appearance: none;
+    background-color: crimson;
+    border-radius: 10px;
+    box-shadow: inset 0 0 5px rgb(0,0,0, .2);
+   
+   
+}
+
+input:checked[type="checkbox"]{
+     background-color: rgb(59, 172, 102);
+}
+
+input[type="checkbox"]:before{
+    content: '';
+    position: absolute;
+    height: 50px;
+    width: 50px;
+    border-radius: 10px;
+    top: 0px;
+    left: -10px;
+    background-color: #fff;
+    transform: scale(1.1);
+    box-shadow: 0 2px 5px rgba(0,0,0, .2);
+    transition: 0.5s;
+}
+
+input:checked[type="checkbox"]:before{
+    left: 50px;
+}
+
+
+/*------------------------------------------------------------------- 
+
+image 01
+ ----------------------------------------------------------------------*/
+
+
+.idiv1{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  
+}
+
+.idiv2{
+    position: relative;
+    cursor: var(--cursor);
+}
+
+.idiv3{
+    display: block; 
+   
+} 
+
+.idiv3:hover{
+  
+}
+
+.itext01{
+    position: absolute; 
+    height:100%;
+    width: 100%;
+    top: 0;
+    left: 0;
+   
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    opacity: 0;
+    transition: 0.5s ;
+}
+.itext01:hover{
+    opacity: 1;
+    background: rgba(0, 0, 0, 0.4);
+}
+
+.itext02{
+    background-color: transparent;
+    padding-top: 90px;
+    transition: 0.5s;
+}
+.itext01:hover > .itext02{
+    padding-top: 0px;
+}
+
+
+
+  /* #container:hover > #cube { background-color: yellow; } */
+.text{
+    color: rgb(215, 179, 255);
+    font-size: var(--font-size);
+    font-weight: var(--font-weight);
+    background: none;
+    border: 1px solid rgb(215, 179, 255);;
+    padding: 20px 50px;
+    border-radius: 5px;
+    
+
+    
+    
+}
+
+
+/* ---------------------------------------------------------
+    image for 02 03
+
+------------------------------------------------------------*/
+
+.i23_div1{
+    width: 100%;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    margin: auto;
+    margin-top: 50px;
+    
+   
+}
+
+.i23_div2{
+    position: relative;
+    cursor: var(--cursor);
+    transition: .5s;
+    /* border: 1px solid rgba(255, 255, 255, 0.493); */
+    border-radius: 10px;
+    text-decoration: none;
+    overflow: hidden;
+}
+
+.i23_div2:hover{
+   transform: translateY(-15px);
+   box-shadow: 0px 0px 20px rgb(209, 209, 209) ;
+}
+
+.i23_div3{
+    display: block;
+    height: 20rem;
+
+
+} 
+
+.i23_text01{
+    position: absolute; 
+    height: 100%;
+    width: 100%;
+    top: 0;
+    left: 0;
+    background: rgba(0, 0, 0, 0.6);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    opacity: 0;
+    transition: 0.5s;
+}
+.i23_text01:hover{
+    opacity: 1;
+}
+
+.i23_text{
+    color: rgb(215, 179, 255);
+    font-size: var(--font-size);
+    font-weight: var(--font-weight);
+    background: none;
+    border: 1px solid rgb(215, 179, 255);;
+    padding: 20px 50px;
+    border-radius: 5px;
+    
+}
+
+
+/* 
+hover border line from 0 to 100
+*/
+
+/* .underline::after{
+    content: "";
+    height: .05rem;
+    width: 0;
+    background: yellow;
+    position: absolute;
+    left: 0;
+    bottom: -0.5rem;
+    transition: 0.5s;
+}
+
+.underline:hover::after{
+    width: 100%;
+    transform: translate(0, -3px)
+    
+} */
+
+
+/* //////////////////////////////////////////////////////////////////////////////////////////////////////////////// */
+
+
+/*-------------------------------------------------------------------------- 
+    text field
+
+
+    type01
+----------------------------------------------------------------------------*/
+
+.field01{
+    margin-top: 100px;
+    margin-bottom: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 3rem;
+}
+
+/* ----------------- */
+.input_type01{
+     position: relative;
+     width: 20rem;
+}
+
+.input_type01 input{
+  
+   width: 100%;
+   height: 2.5rem;
+   padding: 1px 15px;
+   border: 1px solid  rgb(215, 179, 255);
+   font-size: 15px;
+   border-radius: 5px;
+   font-weight: 500;
+   outline: none;
+   color: #fff;
+   
+}
+
+.input_type01 span{
+    position: absolute;
+    /* padding: 10px 0px 0px 60px; */
+    color:  rgb(215, 179, 255);
+    top: 10px;
+    left: 13px;
+    background-color: var(--background-color);
+    transition: 0.5s;
+}
+
+.input_type01 input:focus ~ span,
+.input_type01 input:valid ~ span
+{
+    transform: translateY(-40px) translateX(5px);
+    
+}
+
+
+
+/*-------------------------------------------------------------------------- 
+    text field
+
+
+    type_02
+----------------------------------------------------------------------------*/
+.input_type02{
+    position: relative;
+    width: 20rem;
+}
+
+.input_type02 input{
+ 
+  width: 100%;
+  height: 2.5rem;
+  padding: 0px 10px;
+  border: none;
+  border-bottom: 2px solid  rgb(215, 179, 255);
+  font-size: 15px;
+  /* border-radius: 5px; */
+  font-weight: 500;
+  outline: none;
+  color: #fff;
+  
+}
+
+.input_type02 span{
+   position: absolute;
+   /* padding: 10px 0px 0px 60px; */
+   color:  rgb(215, 179, 255);
+   top: 6px;
+   left: 10px;
+   background-color: var(--background-color);
+   transition: 0.5s;
+}
+
+.input_type02 input:focus ~ span,
+.input_type02 input:valid ~ span
+{
+   transform: translateY(-30px) ;
+   
+}
+
+
+/*-------------------------------------------------------------------------- 
+    text field
+
+
+    type_03
+----------------------------------------------------------------------------*/
+
+
+
+.input_type03{
+    position: relative;
+    width: 20rem;
+}
+
+.input_type03 input{
+ 
+  width: 100%;
+  height: 2.5rem;
+  padding: 1px 15px;
+  border: 1px solid  rgb(215, 179, 255);
+  font-size: 15px;
+  border-radius: 5px;
+  font-weight: 500;
+  outline: none;
+  color: #fff;
+  
+}
+
+.input_type03 span{
+   position: absolute;
+   /* padding: 10px 0px 0px 60px; */
+   color:  rgb(215, 179, 255);
+   top: 10px;
+   left: 13px;
+   background-color: var(--background-color);
+   transition: 0.5s;
+}
+
+.input_type03 input:focus ~ span,
+.input_type03 input:valid ~ span
+{
+   transform: translateY(-18px) translateX(15px);
+   padding: 0 5px 0 5px;
+   font-size: 12px;
+   
+}
+
+
+
+
+/*-------------------------------------------------------------------------- 
+ 
+        select box $$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
+
+----------------------------------------------------------------------------*/
+.dropdown1{
+    /* width: 20rem; */
+    margin-bottom: 100px;
+}
+
+.dropdown1 select{
+    width: 15rem;
+    height: 2.5rem;
+    border: 2px solid  rgb(215, 179, 255);
+    outline: none;
+    background-color: rgba(193, 193, 193, 0.119);
+    border-radius: 5px;
+    font-weight: 500;
+    font-size: 15px;
+    padding: 0 5px 0px 5px;
+    color: rgb(187, 187, 187);
+    /* appearance: none; */
+}
+
+.dropdown1 select option{
+   /* background-color: aquamarine; */
+   color: rgb(183, 183, 183);
+ 
+}
+
+/*-------------------------------------------------------------------------- 
+ 
+       group button $$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$ type 1
+
+----------------------------------------------------------------------------*/
+
+
+.groupBtn2{
+    margin: 50px;
+}
+
+
+
+.groupBtn01{
+    color: rgb(215, 179, 255);
+    border: 2px solid  rgb(133, 87, 185);
+    padding: 10px 20px; 
+    border-radius: 5px 0 0 5px;
+    font-size: 15px;
+    transition: 0.5s;
+}
+
+.groupBtn01:hover {
+    background-color: rgb(86, 52, 124);
+    border-color:  rgb(215, 179, 255);
+}
+
+.groupBtn02{
+    color: rgb(215, 179, 255);
+    border: 2px solid  rgb(133, 87, 185);
+    padding: 10px 20px; 
+    font-size: 15px;
+    transition: 0.5s;
+}
+.groupBtn02:hover {
+    background-color: rgb(86, 52, 124);
+    border-color:  rgb(215, 179, 255);
+}
+.groupBtn03{
+    color: rgb(215, 179, 255);
+    border: 2px solid  rgb(133, 87, 185);
+    padding: 10px 20px; 
+    border-radius: 0px 5px 5px 0px;
+    font-size: 15px;
+    transition: 0.5s;
+}
+.groupBtn03:hover {
+    background-color: rgb(86, 52, 124);
+    border-color:  rgb(215, 179, 255);
+}
+
+
+/*-------------------------------------------------------------------------- 
+ 
+       group button $$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$ type 2
+
+----------------------------------------------------------------------------*/
+
+
+
+
+.gb2{
+    margin: 50px;
+}
+
+
+
+.gb01{
+    color: rgb(215, 179, 255);
+    border: none;
+    border-right: 2px solid  rgb(133, 87, 185);
+    padding: 10px 20px; 
+    border-radius: 5px 0 0 5px;
+    font-size: 15px;
+    transition: 0.5s;
+}
+
+.gb01:hover {
+    background-color: rgb(86, 52, 124);
+    border-color:  rgb(215, 179, 255);
+}
+
+.gb02{
+    color: rgb(215, 179, 255);
+    border: none;
+    border-right: 2px solid  rgb(133, 87, 185);
+    border-left: 2px solid  rgb(133, 87, 185);
+    padding: 10px 20px; 
+    font-size: 15px;
+    transition: 0.5s;
+}
+.gb02:hover {
+    background-color: rgb(86, 52, 124);
+    border-color:  rgb(215, 179, 255);
+}
+.gb03{
+    color: rgb(215, 179, 255);
+    border: none;
+    border-left: 2px solid  rgb(133, 87, 185);
+    padding: 10px 20px; 
+    border-radius: 0px 5px 5px 0px;
+    font-size: 15px;
+    transition: 0.5s;
+}
+.gb03:hover {
+    background-color: rgb(86, 52, 124);
+    border-color:  rgb(215, 179, 255);
+}
+
+
+
+/*-------------------------------------------------------------------------- 
+ 
+       group button $$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$ type 3
+
+----------------------------------------------------------------------------*/
+
+
+
+
+.ggb2{
+    margin: 50px;
+}
+
+
+
+.ggb01{
+   
+    border: none;
+    background-color: rgb(215, 179, 255);
+    font-weight: 500;
+    color: rgb(0, 0, 0);
+    border-right: 2px solid  rgb(133, 87, 185);
+    padding: 10px 20px; 
+    border-radius: 5px 0 0 5px;
+    font-size: 15px;
+    transition: 0.5s;
+}
+
+.ggb01:hover {
+    background-color:  rgb(141, 88, 202);
+}
+
+.ggb02{
+    border: none;
+    background-color: rgb(215, 179, 255);
+    border-right: 2px solid  rgb(133, 87, 185);
+    border-left: 2px solid  rgb(133, 87, 185);
+    font-weight: 500;
+    color: rgb(0, 0, 0);
+    padding: 10px 20px; 
+    font-size: 15px;
+    transition: 0.5s;
+}
+.ggb02:hover {
+    background-color:  rgb(141, 88, 202);
+}
+.ggb03{
+   
+    border: none;
+    background-color: rgb(215, 179, 255);
+    border-left: 2px solid  rgb(133, 87, 185);
+    font-weight: 500;
+    color: rgb(0, 0, 0);
+    padding: 10px 20px; 
+    border-radius: 0px 5px 5px 0px;
+    font-size: 15px;
+    transition: 0.5s;
+    
+}
+.ggb03:hover {
+    background-color:  rgb(141, 88, 202);
+}
+
+
+
+
+/* ============================================================== */
+
+.up{
+    margin: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+   
+}
+
+.up .high button{
+    padding: 10px 20px;
+    /* border: 2px solid rgb(215, 179, 255); */
+    border: none;
+    color: rgb(215, 179, 255);
+    font-size: 20px;
+    font-weight: 500;  
+    transition: 0.5s;
+    position: relative;
+}
+.high{
+    position: relative;
+  
+   
+  
+}
+.up .high button::after{
+    content: "";
+    top: 45px;
+    left: 20px;
+    width: 60%;
+    height: 2px;
+    position: absolute;
+    background-color: rgb(215, 179, 255);
+    opacity: 0;
+    transition: 0.5s;
+}
+ /* imp */  
+.high:hover button{
+    transform: translateY(-10px);
+}
+
+.high:hover button::after{
+    transform: translateY(-6px);
+    opacity: 1;
+}
+
